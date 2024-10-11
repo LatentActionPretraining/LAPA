@@ -1,0 +1,25 @@
+git+https://github.com/lhao499/tux.git
+flax==0.7.0
+optax==0.1.7
+chex==0.1.82
+einops
+transformers==4.29.2
+datasets==2.13.0
+tqdm
+ml_collections
+wandb
+gcsfs
+requests
+typing-extensions
+sentencepiece
+Pillow
+ipdb
+imageio[ffmpeg]
+decord
+tiktoken
+jax[cuda12]==0.4.23 --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+tensorflow[and-cuda]
+scipy==1.12.0
+albumentations
+uvicorn
+fastapi

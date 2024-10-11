@@ -1,0 +1,4 @@
+lapa_checkpoints/*
+SimplerEnv/*
+__pycache__/
+wandb/*
