@@ -84,7 +84,7 @@ where `finetune_data` contains the images of fine-tuning trajectories.
 
 Run the following commands to preprocess the fine-tuning dataset and fine-tune LAPA.
 ```bash
-python data/finetune_preprocess.py --input_path "/path_to_json_file" --output_filename "/data/real_finetune.jsonl" --csv_filename "data/real_finetune.csv"
+python data/finetune_preprocess.py --input_path "/path_to_json_file" --output_filename "data/real_finetune.jsonl" --csv_filename "data/real_finetune.csv"
 ./scripts/finetune_real.sh
 ```
 We ran the experiments with 4 80GB-A100 GPUs. To change the number of GPUs being used, change the second index of `--mesh_dim` in the script to the number of GPUs.
