@@ -5,7 +5,7 @@
 
 **LAPA** 
 
-- **First unsupervised approach** for pretraining Vision-Language-Action (VLA) models without ground-truth robot action labels.
+- **Unsupervised approach** for pretraining Vision-Language-Action (VLA) models without ground-truth robot action labels.
 
 - Outperforms the current state-of-the-art VLA model trained with ground-truth actions, building a new **SOTA VLA model**.
 
@@ -84,7 +84,7 @@ where `finetune_data` contains the images of fine-tuning trajectories.
 
 Run the following commands to preprocess the fine-tuning dataset and fine-tune LAPA.
 ```bash
-python data/finetune_preprocess.py --input_path "/path_to_json_file" --output_filename "/data/real_finetune.jsonl" --csv_filename "data/real_finetune.csv"
+python data/finetune_preprocess.py --input_path "/path_to_json_file" --output_filename "data/real_finetune.jsonl" --csv_filename "data/real_finetune.csv"
 ./scripts/finetune_real.sh
 ```
 We ran the experiments with 4 80GB-A100 GPUs. To change the number of GPUs being used, change the second index of `--mesh_dim` in the script to the number of GPUs.
@@ -101,7 +101,7 @@ python -m latent_pretraining.deploy --load_checkpoint "params::/path_to_the_fine
 where `load_checkpoint` includes the path to the finet-uned checkpoint and `action_scale_file` includes the path to the csv file constructed during data preprocessing of fine-tuning dataset.
 
 ## Latent-Pretraining 
-We provide the code to do latent pretraining from pretrained LWM checkpoint. First, download the [LWM-Chat-1M-Jax](https://huggingface.co/LargeWorldModel/LWM-Chat-1M-Jax) model under `lwm_checkpoints` directory. Then, download the pretraining dataset from this [link]() under the `data` directory. Run the following command for latent pretraining:
+We provide the code to do latent pretraining from pretrained LWM checkpoint. First, download the [LWM-Chat-1M-Jax](https://huggingface.co/LargeWorldModel/LWM-Chat-1M-Jax) model under `lwm_checkpoints` directory. Then, download the pretraining dataset from this [link](https://huggingface.co/latent-action-pretraining/LAPA-7B-openx/resolve/main/latent_action_pretraining_openx.jsonl) under the `data` directory. Run the following command for latent pretraining:
 ```bash
 ./scripts/latent_pretrain_openx.sh
 ```
