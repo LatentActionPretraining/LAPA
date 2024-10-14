@@ -11,12 +11,12 @@ export output_dir="$absolute_path/outputs"
 export project_id='lapa'
 export experiment_note='lapa_pretrain'
 
-export dataset_path="$absolute_path/data/lapa_openx.jsonl"
+export dataset_path="$absolute_path/data/latent_action_pretraining_openx.jsonl"
 export experiment_id='latent_pretrain_openx'
 
 python3 -u -m latent_pretraining.train \
     --modality='vision,text,delta' \
-    --mesh_dim='!-1,4,1,1' \
+    --mesh_dim='!-1,8,1,1' \
     --dtype='bf16' \
     --total_steps=70000 \
     --log_freq=1 \
@@ -39,16 +39,16 @@ python3 -u -m latent_pretraining.train \
     --use_data_sharded_loader=True \
     --train_dataset.type='json_vision_delta' \
     --train_dataset.delta_vision_text_processor.fields_from_example='fields' \
-    --train_dataset.delta_vision_text_processor.n_tokens_per_delta=9 \
+    --train_dataset.delta_vision_text_processor.n_tokens_per_delta=4 \
     --train_dataset.delta_vision_text_processor.max_n_frames=1 \
     --train_dataset.delta_vision_text_processor.img_aug=False \
     --train_dataset.json_delta_dataset.mode="pad" \
     --train_dataset.json_delta_dataset.path="$dataset_path" \
     --train_dataset.json_delta_dataset.seq_length=384 \
-    --train_dataset.json_delta_dataset.batch_size=128 \
+    --train_dataset.json_delta_dataset.batch_size=256 \
     --train_dataset.json_delta_dataset.tokenizer_processes=1 \
-    --train_dataset.json_delta_dataset.tokenizer_parallel_chunk_size=128 \
-    --train_dataset.json_delta_dataset.tokenizer_parallel_batch_size=128 \
+    --train_dataset.json_delta_dataset.tokenizer_parallel_chunk_size=256 \
+    --train_dataset.json_delta_dataset.tokenizer_parallel_batch_size=256 \
     --train_dataset.json_delta_dataset.use_data_sharded_loader=True \
     --checkpointer.save_optimizer_state=False \
     --autoresume=False \
