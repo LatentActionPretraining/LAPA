@@ -117,6 +117,8 @@ If you use this codebase, or otherwise found our work valuable, please cite:
 ```
 ```
 
+If you have additional question, feel free to send an email to latentactionpretraining@gmail.com.
+
 ## License
 
 LAPA's code and model weights are released under the MIT License. 
