@@ -1,6 +1,6 @@
 # LAPA: Latent Action Pretraining from Videos
 [[Project]](https://latentactionpretraining.github.io/)
-[[Paper]]()
+[[Paper]](https://arxiv.org/abs/2410.11758)
 [[Models]](https://huggingface.co/latent-action-pretraining/LAPA-7B-openx)
 
 **LAPA** 
