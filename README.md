@@ -115,6 +115,12 @@ The codebase is based on [Large-World-Model](https://github.com/LargeWorldModel/
 
 If you use this codebase, or otherwise found our work valuable, please cite:
 ```
+@article{ye2024latent,
+  title={Latent Action Pretraining from Videos},
+  author={Ye, Seonghyeon and Jang, Joel and Jeon, Byeongguk and Joo, Sejune and Yang, Jianwei and Peng, Baolin and Mandlekar, Ajay and Tan, Reuben and Chao, Yu-Wei and Lin, Bill Yuchen and others},
+  journal={arXiv preprint arXiv:2410.11758},
+  year={2024}
+}
 ```
 
 If you have additional question, feel free to send an email to latentactionpretraining@gmail.com.
