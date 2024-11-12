@@ -89,7 +89,7 @@ python data/finetune_preprocess.py --input_path "/path_to_json_file" --output_fi
 ```
 We ran the experiments with 4 80GB-A100 GPUs. To change the number of GPUs being used, change the second index of `--mesh_dim` in the script to the number of GPUs.
 
-For fine-tuning on SIMPLER rollout trajectories (100 trajectories), run the following command:
+For fine-tuning on SIMPLER rollout trajectories (100 trajecories), run the following command:
 ```bash
 ./scripts/finetune_simpler.sh
 ```
@@ -99,6 +99,25 @@ After finetuning, to deploy the model, run the following command:
 python -m latent_pretraining.deploy --load_checkpoint "params::/path_to_the_finetuned_ckpt" --action_scale_file "data/real_finetune.csv"
 ```
 where `load_checkpoint` includes the path to the finet-uned checkpoint and `action_scale_file` includes the path to the csv file constructed during data preprocessing of fine-tuning dataset.
+ 
+## Latent Action Quantization 
+We provide the code for latent action quantization pretraining.
+```bash
+conda create -n laq python=3.10 -y
+conda activate laq
+cd laq
+pip install -e .
+accelerate launch train_sthv2.py
+```
+Note that the current data loader code is based on something-something v2 dataset structure where the directory consists of multiple trajectories and each trajectory contain multiple images. To train on custom dataset, either change the data structure or modify the existing data loading code. 
+
+After training, you can use the trained quantization model as an inverse dynamics model to obtain latent actions for training data. 
+
+```bash
+python inference_sthv2.py
+```
+Add arguments based on the training arguements. For the `input_file` argument, it should be a jsonl file which contains `id`, `image`, `instruction` keys as the metadata and `vision` which is the output of the vqgan model consisting of 256 discrete image tokens as the otuput.
+
 
 ## Latent-Pretraining 
 We provide the code to do latent pretraining from pretrained LWM checkpoint. First, download the [LWM-Chat-1M-Jax](https://huggingface.co/LargeWorldModel/LWM-Chat-1M-Jax) model under `lwm_checkpoints` directory. Then, download the pretraining dataset from this [link](https://huggingface.co/latent-action-pretraining/LAPA-7B-openx/resolve/main/latent_action_pretraining_openx.jsonl) under the `data` directory. Run the following command for latent pretraining:
@@ -107,8 +126,12 @@ We provide the code to do latent pretraining from pretrained LWM checkpoint. Fir
 ```
 We experimented with 8 H100 GPUs for 34 hours. We have empirically observed that 70K steps with a batch size of 256 is enough to get decent performance on downstream tasks after fine-tuning.
 
+## SIMPLER
+As a reproducible simulation, we release the setup that we tested with. First, install packages required for our latent-pretraining and [SIMPLER](https://github.com/simpler-env/SimplerEnv) following the installation guide. 
+
+The inference script is provided in `scripts/lapa_bridge.sh`.
 ## Acknowledgement 
-The codebase is based on [Large-World-Model](https://github.com/LargeWorldModel/LWM) repository. For deployment code, we referred to the [OpenVLA](https://github.com/openvla/openvla) code. For the SIMPLER evaluation code, we referred to the [SIMPLER](https://github.com/simpler-env/SimplerEnv) repository.
+The codebase is based on [Large-World-Model](https://github.com/LargeWorldModel/LWM) repository. For latent action quantization, we referred to [Phenaki](https://github.com/lucidrains/phenaki-pytorch) code. For deployment code, we referred to the [OpenVLA](https://github.com/openvla/openvla) code. For the SIMPLER evaluation code, we referred to the [SIMPLER](https://github.com/simpler-env/SimplerEnv) repository.
 
 
 ## Citation

@@ -1,0 +1,5 @@
+*.convex.stl
+*.nonconvex.stl
+!.gitignore
+!/custom
+!/hab2_bench_assets

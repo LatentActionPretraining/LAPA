@@ -1,0 +1,21 @@
+# core
+numpy
+scipy
+gymnasium>=0.28.1
+sapien==2.2.2
+# basic
+h5py
+pyyaml
+tqdm
+# utilties
+GitPython
+tabulate
+gdown>=4.6.0
+# vision
+transforms3d
+opencv-python
+imageio
+imageio[ffmpeg]
+trimesh
+rtree
+ruckig

@@ -1,0 +1,9 @@
+newmtl link_finger_tip_simplified1:phong1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd meta_finger_yellow.png
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 98.00
