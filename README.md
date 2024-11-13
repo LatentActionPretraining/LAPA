@@ -3,6 +3,10 @@
 [[Paper]](https://arxiv.org/abs/2410.11758)
 [[Models]](https://huggingface.co/latent-action-pretraining/LAPA-7B-openx)
 
+**News**
+
+[2024.11.10] LAPA has won the [CoRL 2024 LangRob Workshop](https://sites.google.com/view/langrob-corl24/) Best Paper Award (among 75 accepted papers)! 🥳
+
 **LAPA** 
 
 - **Unsupervised approach** for pretraining Vision-Language-Action (VLA) models without ground-truth robot action labels.
