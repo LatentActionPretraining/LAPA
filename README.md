@@ -5,7 +5,7 @@
 
 **News**
 
-[2024.11.10] LAPA has won the [CoRL 2024 LangRob Workshop](https://sites.google.com/view/langrob-corl24/) Best Paper Award (among 75 accepted papers)! 🥳
+[2024.11.10] LAPA has won the [CoRL 2024 LangRob Workshop](https://sites.google.com/view/langrob-corl24/) **Best Paper Award** (among 75 accepted papers)! 🥳
 
 **LAPA** 
 
