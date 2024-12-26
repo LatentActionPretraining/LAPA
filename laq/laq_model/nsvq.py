@@ -8,7 +8,7 @@ import torch.distributions.uniform as uniform_dist
 ## add project_in, project_out layer 
 ## FYI vector_quantize_pytorch
 class NSVQ(torch.nn.Module):
-    def __init__(self, dim, num_embeddings, embedding_dim, device=torch.device('cpu'), discarding_threshold=0.01, initialization='normal', code_seq_len=1, patch_size=32, image_size = 256):
+    def __init__(self, dim, num_embeddings, embedding_dim, device=torch.device('cpu'), discarding_threshold=0.1, initialization='normal', code_seq_len=1, patch_size=32, image_size = 256):
         super(NSVQ, self).__init__()
 
         """

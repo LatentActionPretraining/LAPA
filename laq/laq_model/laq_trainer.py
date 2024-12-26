@@ -124,7 +124,7 @@ class LAQTrainer(nn.Module):
         self.dl = DataLoader(
             self.ds,
             batch_size = batch_size,
-            # shuffle=True,
+            shuffle=True,
             num_workers=4,  # or more depending on your CPU cores
             pin_memory=True,  # Helps with faster data transfer to GPU
             prefetch_factor=2,

@@ -246,9 +246,9 @@ class LatentActionQuantization(nn.Module):
         
 
         
-        if ((step % 100 == 1 and step < 1000) or (step % 500 == 1 and step < 5000)) and step != 0: ## todo: after finishing the training, don't change the codebook
+        if ((step % 10 == 0 and step < 100)  or (step % 100 == 0 and step < 1000) or (step % 500 == 0 and step < 5000)) and step != 0:
             print(f"update codebook {step}")
-            self.vq.replace_unused_codebooks(224*4)
+            self.vq.replace_unused_codebooks(tokens.shape[0])
 
         if return_only_codebook_ids:
             return indices
