@@ -5,6 +5,8 @@
 
 **News**
 
+[2025.01.22] LAPA has been accepted to ICLR 2025! 
+
 [2024.11.22] We release the weights for the LAQ pretrained on openx here: https://huggingface.co/latent-action-pretraining/LAPA-7B-openx/blob/main/laq_openx.pt. 
 
 [2024.11.10] LAPA has won the [CoRL 2024 LangRob Workshop](https://sites.google.com/view/langrob-corl24/) **Best Paper Award** (among 75 accepted papers)! 🥳
